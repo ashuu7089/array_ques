@@ -1,3 +1,5 @@
+//Bubble sort
+
 let data = [51,25,21,10,5];
 for(let index = 0 ;index < data.length; index++){
     for(newIndex = 0; newIndex < data.length; newIndex++){
