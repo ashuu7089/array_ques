@@ -29,29 +29,43 @@ class List {
             next : nextNode
         }
     }
-    // traversing(){
-    //     let counter = 0 ;
-    //     let currentNode =this.head;
-    //     while(counter < this.size){
-    //         currentNode = currentNode.next;
-    //         counter++
-    //     }
-    // }
-    // deleteNode(index){
-    //     let counter =1;
-    //     let lead = this.head;
-    //     if(index == 1){
-    //         this.head = this.head.next;
-    //     }else{
-    //         while(counter < index-1){
-    //             lead = lead.next;
-    //             counter++
-    //         }
-    //         let nextNode = lead.next.next;
-    //         lead.next =nextNode;
-    //         console.log(lead); 
-    //     }
-    // }
+    traversing(){
+        let counter = 0 ;
+        let currentNode =this.head;
+        while(counter < this.size){
+            currentNode = currentNode.next;
+            counter++
+        }
+    }
+    deleteNode(index){
+        let counter =1;
+        let lead = this.head;
+        if(index == 1){
+            this.head = this.head.next;
+        }else{
+            while(counter < index-1){
+                lead = lead.next;
+                counter++
+            }
+            let nextNode = lead.next.next;
+            lead.next =nextNode;
+            console.log(lead); 
+        }
+    }
+    searchNode(data){
+        let result;
+        let lead = this.head
+        let loop = true;
+        while(loop){
+            lead = lead.next
+            loop =  !!lead;
+            if(loop && lead.value === data){
+                loop = false;
+                result = lead;
+            }
+        }
+        console.log(result);
+    }
 
 }
 let list = new List(100);
@@ -60,6 +74,7 @@ list.appendNode(300);
 list.appendNode(400);
 list.appendNode(500);
 list.insertNode(3,10000)
+list.searchNode(500)
 //  list.traversing()
 // list.deleteNode(1)
 console.log(list);
