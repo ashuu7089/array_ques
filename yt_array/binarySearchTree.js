@@ -101,10 +101,10 @@ class BST {
             return this.maxValue(root.right)
         }
     }
-    removeData(root){
+    removeData(value){
         this.root = this.deleteNode(this.root, value)
     }
-    deleteNode(){
+    deleteNode(root, value){
         if(root === null){
             return null
         }
@@ -112,7 +112,19 @@ class BST {
             root.left = this.deleteNode(root.left, value)
         }else if(value > root.value ){
             root.right = this.deleteNode(root.right, value)
+        } else {
+            if(root.left && root.right){
+                return null;
+            }else if(root.left){
+                return root.right;
+            }
+            else if(!this.root.right){
+                return root.left
+            }
+            root.value = this.minValue(root.right);
+            root.right = this.deleteNode(root.right, root.value)
         }
+        return root;
     }
 }
 let bst = new BST()
@@ -128,7 +140,8 @@ bst.makeTree(23)
 // bst.inOrder(bst.root)
 // bst.postOrder(bst.root)
 // bst.bfsTraversing(bst.root)
-console.log(bst.minValue(bst.root));
-console.log(bst.maxValue(bst.root));
-// console.log(bst.root);
+bst.removeData(10)
+// console.log(bst.minValue(bst.root));
+// console.log(bst.maxValue(bst.root));
+ console.log(bst.root);
 
