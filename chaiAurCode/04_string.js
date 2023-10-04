@@ -25,11 +25,5 @@ console.log(gameName.charCodeAt());
   
 
 
-
-//Crytpo Module
-const crypto = require('crypto');  
-const secret = 'abcdefg';  
-const hash = crypto.createHmac('sha256', secret)  
-                   
-                   .digest('hex');  
-console.log(hash);  
+//sudo lsof -i :5000 
+//sudo kill -9 20152
