@@ -21,3 +21,4 @@ console.log(obj[mySym]);
 console.log(typeof mySym);
 
 console.log(obj);
+
